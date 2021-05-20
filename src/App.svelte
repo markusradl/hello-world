@@ -8,6 +8,9 @@
 </script>
 
 <main>
+
+	<h1> Test Svelte List with key</h1>
+
 	{#each names as name, index (name)}
 		<h2>{index + 1} {name} index with the key name</h2>
 	{/each}
