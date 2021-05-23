@@ -1,131 +1,68 @@
 <script>
-	const formValues ={
-		name: '',
-		profileSummary: '',
-		country: '',
-		jobLocation: [],
-		remoteWork: false,
-		skillSet: [],
-		yearsOfExperience: ''
-	}
+	let firstName = 'Markus'
+	let lastName = 'Radl'
 
-	function submitForm(event) {
-		console.log(formValues)
+	let items = [
+		{
+			id: 1,
+			tile: 'TV',
+			price: 100
+		},
+		{
+			id: 2,
+			tile: 'Phone',
+			price: 200
+		},
+		{
+			id: 3,
+			tile: 'Laptop',
+			price: 300
+		}
+	]
+
+	$: fullName = `${lastName} ${firstName}`
+	$: {
+		const greet = `Fullname is ${firstName} ${lastName}`
+		console.log(greet)
 	}
+	$: total = items.reduce((total, curr) => (total = total + curr.price),0)
+
+	let volume = 0
+	$:if (volume < 0) {
+			alert('You can not go under 0')
+			volume = 0
+		}else if (volume > 20) {
+			alert('You can not go higher than 20')
+			volume = 20
+		}
 </script>
 
 <main>
+
+	<h2>Current volume: {volume}</h2>
 	<div>
-		<pre>
-			{JSON.stringify(formValues, null, 2)}
-		</pre>
+		<button on:click={() => volume += 2}>Increase volume (+)</button>
+		<button on:click={() => (volume -= 2)}>Decrease volume (-)</button>
 	</div>
-	<form on:submit|preventDefault={submitForm}>
-		<div>
-			<label for="name">Vorname</label>
-			<!--Svelte casts the datatype accordingly to input type-->
-			<input type="number" id="name" bind:value={formValues.name}>
-		</div>
 
-		<div>
-			<label for="profile">Profile Summary</label>
-			<textarea id="profile" bind:value={formValues.profileSummary} placeholder="Please enter some text"></textarea>
-		</div>
+	<button 
+		on:click={() => {
+			firstName = 'Clark'
+			lastName = 'Kent'
+		}}>Change name</button
+	>
+	
+	<h2>{firstName} {lastName}</h2>
+	<h2>{fullName}</h2>
 
-		<div>
-			<label for="country">Country</label>
-			<select id="country" bind:value={formValues.country}>
-				<option value="">Select a country</option>
-				<option value="india">India</option>
-				<option value="austria">Austria</option>
-				<option value="england">England</option>
-			</select>
-		</div>
+	<button on:click={() => items = ([...items,{id:4, title: 'Keyboard', price: 50}])}>Add item</button>
 
-		<div>
-			<label for="job-location">Job Location</label>
-			<select 
-				id="job-location" 
-				bind:value={formValues.jobLocation}
-				multiple
-			>
-				<option value="">Select a country</option>
-				<option value="india">India</option>
-				<option value="austria">Austria</option>
-				<option value="england">England</option>
-			</select>
-		</div>
+	<h2>Calc total Price with reduce</h2>
+	<h2>Total: {total}</h2>
 
-		<div>
-			<input
-				type="checkbox"
-				id="remoteWork"
-				bind:checked={formValues.remoteWork}
-			/>
-			<label for="remoteWork">Open for remote work?</label>
-		</div>
-
-		<div>
-			<label>Skill set</label>
-				<input
-					type="checkbox"
-					id="css"
-					value="css"
-					bind:group={formValues.skillSet}
-				/>
-				<label for="css">CSS</label>
-				<input
-					type="checkbox"
-					id="html"
-					value="html"
-					bind:group={formValues.skillSet}
-				/>
-				<label for="css">HTML</label>
-				<input
-					type="checkbox"
-					id="javascript"
-					value="javascript"
-					bind:group={formValues.skillSet}
-				/>
-				<label for="javascript">JavaScript</label>
-		</div>
-
-		<div>
-			<label>Years of Experience</label>
-				<input
-					type="radio"
-					id="1-2"
-					value="1-2"
-					bind:group={formValues.yearsOfExperience}
-				/>
-				<label for="1-2">1-2</label>
-				<input
-					type="radio"
-					id="3-5"
-					value="3-5"
-					bind:group={formValues.yearsOfExperience}
-				/>
-				<label for="3-5">3-5</label>
-				<input
-					type="radio"
-					id="5-10"
-					value="5-10"
-					bind:group={formValues.yearsOfExperience}
-				/>
-				<label for="5-10">5-10</label>
-		</div>
-
-		<div>
-			<button>Submit</button>
-		</div>
-	</form>
 </main>
 
 <style>
-	input + label {
-		display: inline-flex;
-	}
-
 	main {
 		/*text-align: center;*/
 		padding: 1em;
