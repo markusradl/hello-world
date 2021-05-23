@@ -1,23 +1,18 @@
 <script>
-	const names = ['Bruce', 'Clark', 'Jose']
-	const fullNames = [
-		{ first: 'Bruce', last: 'Wayne'},
-		{ first: 'Clark', last: 'Kent'},
-		{ first: 'Princess', last: 'Diana'},
-	]
+	let count = 0
+
+	function handleClick(event, stepSize) {
+		count += stepSize
+		console.log(event)
+	}
 </script>
 
 <main>
-
-	<h1> Test Svelte List with key</h1>
-
-	{#each names as name, index (name)}
-		<h2>{index + 1} {name} index with the key name</h2>
-	{/each}
- 
-	{#each fullNames as name, index (name.first)}
-		<h2>{index + 1} {name.first}</h2>
-	{/each}
+	<!-- In Line Event handler -->
+	<button on:click={() => (count = count + 1)} >Count up! Value: {count}</button>
+  
+	<button on:click={(event) => handleClick(event, 5)} >Count up by 5! Value: {count}</button>
+	<button on:click={(event) => handleClick(event, 10)} >Count up by 10! Value: {count}</button>
 
 </main>
 
