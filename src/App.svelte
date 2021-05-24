@@ -1,9 +1,12 @@
 <script>
 	import Greet from './components/Greet.svelte'	
+	import S7apitest from './components/S7apitest.svelte'
+
 </script>
 
 <main>
 	<Greet/>
+	<S7apitest />
 </main>
 
 <style>
