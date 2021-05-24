@@ -1,21 +1,17 @@
 <script>
-	import Greet from './components/Greet.svelte'	
-	const name = 'Markus'
-	const organisation = 'mrsln'
-	const obj = {
-		name: 'Barry',
-		heroName: 'Flash'
-	}
+	import { setContext } from 'svelte'
+	import ComponentC from './components/ComponentC.svelte'	
+  
+	const userName = 'Maxl'
+	
+	setContext('userName', userName)
 </script>
 
 <main>
-	<Greet name='Bruce' heroName='Batman'/>
-	<Greet name='CLark'heroName='Superman'/>
-	<Greet name='Diana' heroName='Wonder Woman'/>
-	<Greet {name}/>
-	<!--Spread operator ... extracts the items out of the ohject-->
-	<Greet {...obj}/>
 
+	<h2>App svelte</h2>
+	<h2>Username: {userName}</h2>
+	<ComponentC />
 
 </main>
 
