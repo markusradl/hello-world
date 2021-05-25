@@ -1,18 +1,19 @@
 <script>
-	import { setContext } from 'svelte'
-	import ComponentC from './components/ComponentC.svelte'	
-  
-	const userName = 'Maxl'
-	
-	setContext('userName', userName)
+	import Popup from './components/Popup.svelte'
+
+	let showPopup = false
+
+	function closePopup(event) {
+		showPopup = false
+		console.log(event.detail)
+	}
 </script>
 
 <main>
-
-	<h2>App svelte</h2>
-	<h2>Username: {userName}</h2>
-	<ComponentC />
-
+	<button on:click={() => (showPopup = true)}>Show Popup</button>
+	{#if (showPopup)}
+		<Popup on:close={closePopup} />
+	{/if}
 </main>
 
 <style>
