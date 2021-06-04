@@ -1,50 +1,19 @@
 <script>
-	import Card from './components/Card.svelte'
-	import NameList from './components/NameList.svelte'
+	import ChildStyles from './components/ChildStyles.svelte'
 </script>
 
 <main>
-	<NameList>
-		<h3 slot="hero" let:firstName let:lastName>
-			{firstName} {lastName}
-		</h3>
-	</NameList>
-
-	<NameList>
-		<h3 slot="hero" let:firstName let:lastName>
-			{lastName}, {firstName}
-		</h3>
-	</NameList>
-
-	<NameList>
-		<h3 slot="hero" let:firstName let:lastName>
-			{firstName}
-		</h3>
-	</NameList>
-<!-- 	
-	<Card><h2>Card content 1</h2></Card>
-	<Card><h3>Card content 2</h3></Card>
-	<Card><img src="https://picsum.photos/200" alt="Test"></Card>
-	<Card />
-
-	<Card>
-		<div slot="header">
-			<h3>Header</h3>
-		</div>
-		<div slot="content">
-			<img src="https://picsum.photos/200" alt="Test">
-		</div>
-		<div slot="footer">
-			<button>View details</button>
-		</div>
-	</Card>
- -->
-	
-	
+	<h3>Appp component global style</h3>
+	<h4>App component text</h4>
+	<ChildStyles />	
 </main>
 
 
 <style>
+
+	h4 {
+		color: orange;
+	}
 	main{
 		text-align: center;
 		padding: 1em;
