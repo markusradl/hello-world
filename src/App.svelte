@@ -1,8 +1,27 @@
 <script>
 	import Card from './components/Card.svelte'
+	import NameList from './components/NameList.svelte'
 </script>
 
 <main>
+	<NameList>
+		<h3 slot="hero" let:firstName let:lastName>
+			{firstName} {lastName}
+		</h3>
+	</NameList>
+
+	<NameList>
+		<h3 slot="hero" let:firstName let:lastName>
+			{lastName}, {firstName}
+		</h3>
+	</NameList>
+
+	<NameList>
+		<h3 slot="hero" let:firstName let:lastName>
+			{firstName}
+		</h3>
+	</NameList>
+<!-- 	
 	<Card><h2>Card content 1</h2></Card>
 	<Card><h3>Card content 2</h3></Card>
 	<Card><img src="https://picsum.photos/200" alt="Test"></Card>
@@ -19,7 +38,7 @@
 			<button>View details</button>
 		</div>
 	</Card>
-
+ -->
 	
 	
 </main>
