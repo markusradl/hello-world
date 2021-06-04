@@ -1,15 +1,16 @@
 <script>
-	import PostList from './components/PostList.svelte'
+	import Autofocus from './components/Autofocus.svelte';
+import AutoFocus from './components/Autofocus.svelte'
 </script>
 
 <main>
 	<header>
 		<p>Codevolution</p>
-		<p>Svelte Tutorial - 27 - HTTP Request<p>
+		<p>Svelte Tutorial - 28 - this binding<p>
 	</header>
 	
 	<section>
-		<PostList />
+		<Autofocus />
 	</section>
 </main>
 
