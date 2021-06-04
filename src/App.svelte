@@ -1,14 +1,27 @@
 <script>
-	import Outer from './components/Outer.svelte'
-	import Button from './components/Button.svelte'
-
-	function handleGreet(event) {
-		alert(event.detail)
-	}
+	import { get_slot_changes } from 'svelte/internal';
+import Card from './components/Card.svelte'
 </script>
+
 <main>
-	<Outer on:greet={handleGreet} />
-	<Button on:click={() => (alert('Clicked'))}>Click</Button>
+	<Card content='Card content 1'>
+		<h2>Card content 1</h2>
+	</Card>
+	
+	<Card content='Card content 2'>
+		<h3>Card content 2</h3>
+	</Card>
+
+	<Card content='Card content 3'>
+		<img src="https://picsum.photos/200" alt="Test">
+	</Card>
+	
+	<Card content='Card content 4'>
+		
+	</Card>
+	
+
+
 </main>
 
 
