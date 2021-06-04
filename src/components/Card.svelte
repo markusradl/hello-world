@@ -1,14 +1,21 @@
 <script>
-  export let content
 </script>
 
-<div class="card">{content} <p>With props only String </p> </div>
-
 <div class="card">
-  <slot>
-    Default slot content, no slot data defined in parent
-  </slot> 
-  <p>With slots everything</p>
+  <div class="card-header">
+    <slot name="header" />
+  </div>
+
+  <div class="card-content">
+    <slot name="content">Default content</slot>
+  </div>
+  
+  {#if $$slots.footer}
+    <hr />
+    <div class="card-footer">
+      <slot name="footer" />
+    </div>
+  {/if}
 </div>
 
 <style>

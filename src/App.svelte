@@ -1,27 +1,27 @@
 <script>
-	import { get_slot_changes } from 'svelte/internal';
-import Card from './components/Card.svelte'
+	import Card from './components/Card.svelte'
 </script>
 
 <main>
-	<Card content='Card content 1'>
-		<h2>Card content 1</h2>
-	</Card>
-	
-	<Card content='Card content 2'>
-		<h3>Card content 2</h3>
+	<Card><h2>Card content 1</h2></Card>
+	<Card><h3>Card content 2</h3></Card>
+	<Card><img src="https://picsum.photos/200" alt="Test"></Card>
+	<Card />
+
+	<Card>
+		<div slot="header">
+			<h3>Header</h3>
+		</div>
+		<div slot="content">
+			<img src="https://picsum.photos/200" alt="Test">
+		</div>
+		<div slot="footer">
+			<button>View details</button>
+		</div>
 	</Card>
 
-	<Card content='Card content 3'>
-		<img src="https://picsum.photos/200" alt="Test">
-	</Card>
 	
-	<Card content='Card content 4'>
-		
-	</Card>
 	
-
-
 </main>
 
 
