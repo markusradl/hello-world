@@ -1,11 +1,16 @@
 <script>
-	import ChildStyles from './components/ChildStyles.svelte'
+	import PostList from './components/PostList.svelte'
 </script>
 
 <main>
-	<h3>Appp component global style</h3>
-	<h4>App component text</h4>
-	<ChildStyles />	
+	<header>
+		<p>Codevolution</p>
+		<p>Svelte Tutorial - 27 - HTTP Request<p>
+	</header>
+	
+	<section>
+		<PostList />
+	</section>
 </main>
 
 
