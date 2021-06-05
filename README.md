@@ -1,3 +1,10 @@
+# hello-world app
+
+This is a playground for the first expiriance with svelte.
+I used the template (https://github.com/sveltejs/template) to learn svelte with tutorials at youtube from "Codevolution"
+
+---
+
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
