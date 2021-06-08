@@ -1,16 +1,23 @@
 <script>
-	import Autofocus from './components/Autofocus.svelte';
-import AutoFocus from './components/Autofocus.svelte'
+	import Tab1 from './components/Tab1.svelte'
+	import Tab2 from './components/Tab2.svelte'
+	import Tab3 from './components/Tab3.svelte'
+
+	let selectedTab = Tab1
 </script>
 
 <main>
 	<header>
 		<p>Codevolution</p>
-		<p>Svelte Tutorial - 28 - this binding<p>
+		<p>Svelte Tutorial - 29 - dynamic components<p>
 	</header>
-	
+		
 	<section>
-		<Autofocus />
+		<button on:click={() => selectedTab = Tab1}>Tab1</button>
+		<button on:click={() => selectedTab = Tab2}>Tab2</button>
+		<button on:click={() => selectedTab = Tab3}>Tab3</button>
+
+		<svelte:component this={selectedTab} />
 	</section>
 </main>
 
