@@ -1,23 +1,19 @@
 <script>
-	import Tab1 from './components/Tab1.svelte'
-	import Tab2 from './components/Tab2.svelte'
-	import Tab3 from './components/Tab3.svelte'
-
-	let selectedTab = Tab1
+	import Counter, { getTotalCount } from './components/Counter.svelte'
 </script>
 
 <main>
 	<header>
 		<p>Codevolution</p>
-		<p>Svelte Tutorial - 29 - dynamic components<p>
+		<p>Svelte Tutorial - 30 - module context<p>
 	</header>
 		
 	<section>
-		<button on:click={() => selectedTab = Tab1}>Tab1</button>
-		<button on:click={() => selectedTab = Tab2}>Tab2</button>
-		<button on:click={() => selectedTab = Tab3}>Tab3</button>
-
-		<svelte:component this={selectedTab} />
+		<button on:click={() => {alert(getTotalCount())}}>Show total count</button>
+		<hr>
+		<Counter />
+		<Counter />
+		<Counter />
 	</section>
 </main>
 
