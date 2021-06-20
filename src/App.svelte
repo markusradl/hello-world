@@ -1,28 +1,20 @@
 <script>
-	import Counter, { getTotalCount } from './components/Counter.svelte'
+	import Decrement from './components/Decrement.svelte'
+	import Display from './components/Display.svelte'
+	import Increment from './components/Increment.svelte'
+	import Reset from './components/Reset.svelte'
 </script>
 
 <main>
-	<header>
-		<p>Codevolution</p>
-		<p>Svelte Tutorial - 30 - module context<p>
-	</header>
-		
-	<section>
-		<button on:click={() => {alert(getTotalCount())}}>Show total count</button>
-		<hr>
-		<Counter />
-		<Counter />
-		<Counter />
-	</section>
+	<Display />	
+	<Increment />
+	<Decrement />
+	<Reset />
 </main>
 
 
 <style>
 
-	h4 {
-		color: orange;
-	}
 	main{
 		text-align: center;
 		padding: 1em;
